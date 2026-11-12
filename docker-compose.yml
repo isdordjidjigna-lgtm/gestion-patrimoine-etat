@@ -20,6 +20,8 @@ services:
   auth-service:
     build: ./services/auth-service
     container_name: patrimoine_auth_service
+    volumes:
+      - ./services/auth-service:/var/www/html
     environment:
       APP_ENV: local
       APP_KEY: base64:NBMlWaqhDI5uhFqRyE2aPlj424rpNfcb9YHZwifjdDo=
@@ -52,6 +54,8 @@ services:
   patrimoine-service:
     build: ./services/patrimoine-service
     container_name: patrimoine_service
+    volumes:
+      - ./services/patrimoine-service:/var/www/html
     environment:
       APP_ENV: local
       APP_KEY: base64:TnWvG/HEwSXf+QJQqKYcCwKMs5of9AwtG+KpgDcJPqA=
@@ -84,6 +88,8 @@ services:
   occupation-service:
     build: ./services/occupation-service
     container_name: patrimoine_occupation_service
+    volumes:
+      - ./services/occupation-service:/var/www/html
     environment:
       APP_ENV: local
       APP_KEY: base64:I7VGykuAuPtFLLFE/7TlE36WCE7nDiuRX8k4MWaaNJU=
@@ -116,6 +122,8 @@ services:
   reporting-service:
     build: ./services/reporting-service
     container_name: patrimoine_reporting_service
+    volumes:
+      - ./services/reporting-service:/var/www/html
     environment:
       APP_ENV: local
       APP_KEY: base64:vIFxi2HtUqUSZJ6N8X8XdIp8kAKjHf0a2hR7JySR0g0=
