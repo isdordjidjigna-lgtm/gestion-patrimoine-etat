@@ -15,6 +15,4 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth');
 
-Route::get('/registre', function () {
-    return view('registre');
-})->middleware('auth');
+Route::get('/registre', [\App\Http\Controllers\RegistreController::class, 'index'])->middleware('auth');
