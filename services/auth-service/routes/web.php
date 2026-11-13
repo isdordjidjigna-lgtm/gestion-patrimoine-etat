@@ -18,3 +18,7 @@ Route::get('/dashboard', function () {
 Route::get('/registre', [\App\Http\Controllers\RegistreController::class, 'index'])->middleware('auth');
 Route::get('/biens/{id}', [AppHttpControllersRegistreController::class, 'show'])->middleware('auth');
 Route::get('/biens/{id}', [\App\Http\Controllers\RegistreController::class, 'show'])->middleware('auth');
+
+Route::get('/ajouter-bien', function () {
+    return view('ajouter-bien');
+})->middleware('auth');
