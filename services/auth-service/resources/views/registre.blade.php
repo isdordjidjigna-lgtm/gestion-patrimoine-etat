@@ -80,7 +80,7 @@
                         <span class="bg-secondary text-secondary-foreground px-2.5 py-1 rounded-full text-xs font-medium">À vérifier</span>
                     @endif
                 </td>
-                <td class="px-6 py-4 text-right"><a href="#" class="text-primary font-medium hover:underline">Ouvrir</a></td>
+                <td class="px-6 py-4 text-right"><a href="/biens/{{ $bien['id'] }}" class="text-primary font-medium hover:underline">Ouvrir</a></td>
             </tr>
             @empty
             <tr>

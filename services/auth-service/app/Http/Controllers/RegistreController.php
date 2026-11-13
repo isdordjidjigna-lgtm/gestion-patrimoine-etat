@@ -9,7 +9,6 @@ class RegistreController extends Controller
 {
     public function index()
     {
-        // Appel à l'API du patrimoine (via le réseau interne Docker)
         $response = Http::get('http://patrimoine-service:8000/api/patrimoine/biens');
         
         $biens = [];
@@ -19,5 +18,18 @@ class RegistreController extends Controller
         }
         
         return view('registre', compact('biens'));
+    }
+
+    public function show($id)
+    {
+        $response = Http::get("http://patrimoine-service:8000/api/patrimoine/biens/{$id}");
+        
+        if (!$response->successful()) {
+            abort(404);
+        }
+        
+        $bien = $response->json()['data'];
+        
+        return view('fiche-bien', compact('bien'));
     }
 }
