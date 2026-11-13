@@ -22,3 +22,7 @@ Route::get('/biens/{id}', [\App\Http\Controllers\RegistreController::class, 'sho
 Route::get('/ajouter-bien', function () {
     return view('ajouter-bien');
 })->middleware('auth');
+
+Route::get('/affectations', function () {
+    return view('affectations');
+})->middleware('auth');
