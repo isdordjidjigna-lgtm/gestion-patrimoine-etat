@@ -73,7 +73,7 @@
                     </div>
                 @endif
 
-                <form method="POST" action="/api/auth/login">
+                <form method="POST" action="/login">
                     @csrf
 
                     <div class="mb-5">

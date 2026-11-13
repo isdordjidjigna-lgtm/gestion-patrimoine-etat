@@ -22,7 +22,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
-          return redirect('/api/auth/dashboard'); 
+         return redirect('/dashboard');
         }
 
         return back()->withErrors([
@@ -35,6 +35,6 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/api/auth/login');
+        return redirect('/login');
     }
 }

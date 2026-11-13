@@ -5,7 +5,7 @@ services:
     image: nginx:alpine
     container_name: patrimoine_gateway
     ports:
-      - "8080:80"
+      - "8081:80"
     volumes:
       - ./gateway/nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
@@ -20,12 +20,14 @@ services:
   auth-service:
     build: ./services/auth-service
     container_name: patrimoine_auth_service
+    ports:
+      - "8001:8000"
     volumes:
       - ./services/auth-service:/var/www/html
     environment:
       APP_ENV: local
       APP_KEY: base64:NBMlWaqhDI5uhFqRyE2aPlj424rpNfcb9YHZwifjdDo=
-      APP_URL: http://localhost:8080
+      APP_URL: http://localhost:8001
       DB_CONNECTION: pgsql
       DB_HOST: auth-db
       DB_PORT: 5432
@@ -59,7 +61,7 @@ services:
     environment:
       APP_ENV: local
       APP_KEY: base64:TnWvG/HEwSXf+QJQqKYcCwKMs5of9AwtG+KpgDcJPqA=
-      APP_URL: http://localhost:8080
+      APP_URL: http://localhost:8081
       DB_CONNECTION: pgsql
       DB_HOST: patrimoine-db
       DB_PORT: 5432
@@ -93,7 +95,7 @@ services:
     environment:
       APP_ENV: local
       APP_KEY: base64:I7VGykuAuPtFLLFE/7TlE36WCE7nDiuRX8k4MWaaNJU=
-      APP_URL: http://localhost:8080
+      APP_URL: http://localhost:8081
       DB_CONNECTION: pgsql
       DB_HOST: occupation-db
       DB_PORT: 5432
@@ -127,7 +129,7 @@ services:
     environment:
       APP_ENV: local
       APP_KEY: base64:vIFxi2HtUqUSZJ6N8X8XdIp8kAKjHf0a2hR7JySR0g0=
-      APP_URL: http://localhost:8080
+      APP_URL: http://localhost:8081
       DB_CONNECTION: pgsql
       DB_HOST: reporting-db
       DB_PORT: 5432
