@@ -15,7 +15,8 @@
     </div>
 </header>
 
-<form class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+<form method="POST" action="/ajouter-bien" class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+    @csrf
     
     {{-- COLONNE GAUCHE --}}
     <div class="xl:col-span-2 space-y-6">
@@ -26,11 +27,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label class="block text-sm font-medium mb-1">Désignation du bien</label>
-                    <input type="text" placeholder="Ex. Véhicule de service Toyota Hilux" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
+                    <input type="text" name="designation" placeholder="Ex. Véhicule de service Toyota Hilux" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">Catégorie</label>
-                    <select class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
+                    <select name="categorie_id" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
                         <option>Sélectionner une catégorie</option>
                         <option>Immobilier</option>
                         <option>Véhicules</option>
@@ -41,11 +42,11 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">Référence interne</label>
-                    <input type="text" placeholder="PAT-XXX-0000" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
+                    <input type="text" name="reference" placeholder="PAT-XXX-0000" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">Service gestionnaire</label>
-                    <input type="text" placeholder="Ministère ou direction détentrice" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
+                    <input type="text" name="service" placeholder="Ministère ou direction détentrice" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
                 </div>
             </div>
         </div>
@@ -56,15 +57,15 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                     <label class="block text-sm font-medium mb-1">Date d'acquisition</label>
-                    <input type="date" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
+                    <input type="date" name="date_acquisition" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">Valeur d'acquisition</label>
-                    <input type="text" placeholder="Montant en FCFA" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
+                    <input type="text" name="valeur" placeholder="Montant en FCFA" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">Mode d'acquisition</label>
-                    <select class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
+                    <select name="mode_acquisition" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
                         <option>Achat public</option>
                         <option>Don</option>
                         <option>Construction publique</option>
@@ -80,11 +81,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label class="block text-sm font-medium mb-1">Région / Préfecture</label>
-                    <input type="text" placeholder="Ex. Golfe, Lomé" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
+                    <input type="text" name="localisation" placeholder="Ex. Golfe, Lomé" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1">État du bien</label>
-                    <select class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
+                    <select name="statut" class="w-full px-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
                         <option>Bon état</option>
                         <option>Dégradé</option>
                         <option>À vérifier</option>
@@ -100,11 +101,12 @@
         {{-- PIÈCES JOINTES --}}
         <div class="bg-card border border-border rounded-xl p-6 shadow-theme">
             <h2 class="text-lg font-semibold mb-4">Pièces jointes</h2>
-            <div class="border-2 border-dashed border-border rounded-lg p-6 text-center">
+            <label for="file-upload" class="border-2 border-dashed border-border rounded-lg p-6 text-center cursor-pointer hover:border-primary transition block">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mx-auto text-primary mb-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                 <p class="text-sm font-medium">Déposer les documents</p>
                 <p class="text-xs text-muted-foreground mt-1">Acte, facture, photos ou rapport</p>
-            </div>
+                <input id="file-upload" name="documents[]" type="file" class="hidden" multiple>
+            </label>
         </div>
 
         {{-- BROUILLON --}}
@@ -113,11 +115,12 @@
             <p class="font-semibold mt-2">Aucune erreur détectée</p>
         </div>
     </div>
-</form>
 
-<div class="flex justify-end gap-3 mt-6">
-    <a href="/registre" class="px-5 py-3 rounded-lg border border-border font-medium hover:bg-muted transition">Annuler</a>
-    <button type="submit" class="px-5 py-3 rounded-lg text-white font-semibold shadow-md transition" style="background: linear-gradient(135deg, #10A8D4 0%, #16B6AE 100%);">Enregistrer le bien</button>
-</div>
+    {{-- BOUTONS --}}
+    <div class="xl:col-span-3 flex justify-end gap-3 mt-6">
+        <a href="/registre" class="px-5 py-3 rounded-lg border border-border font-medium hover:bg-muted transition">Annuler</a>
+        <button type="submit" class="px-5 py-3 rounded-lg text-white font-semibold shadow-md transition" style="background: linear-gradient(135deg, #10A8D4 0%, #16B6AE 100%);">Enregistrer le bien</button>
+    </div>
+</form>
 
 @endsection

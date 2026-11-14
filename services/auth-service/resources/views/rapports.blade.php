@@ -10,13 +10,13 @@
         <h1 class="text-2xl font-bold">Rapports</h1>
     </div>
     <div class="flex items-center gap-3">
-        <button class="px-5 py-2.5 rounded-lg border border-border font-medium hover:bg-muted transition flex items-center gap-2">
+        <a href="/rapports/export" class="px-5 py-2.5 rounded-lg border border-border font-medium hover:bg-muted transition flex items-center gap-2">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Exporter
-        </button>
-        <button class="px-5 py-2.5 rounded-lg text-white font-semibold shadow-md transition" style="background: linear-gradient(135deg, #10A8D4 0%, #16B6AE 100%);">
+        </a>
+        <a href="/rapports/export" class="px-5 py-2.5 rounded-lg text-white font-semibold shadow-md transition inline-flex items-center" style="background: linear-gradient(135deg, #10A8D4 0%, #16B6AE 100%);">
             Générer le rapport
-        </button>
+        </a>
     </div>
 </header>
 
@@ -155,19 +155,19 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10A8D4" stroke-width="2" class="mb-3"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             <p class="font-semibold text-sm">Inventaire national consolidé</p>
             <p class="text-xs text-muted-foreground mt-1">Situation au 10 novembre 2026</p>
-            <button class="mt-4 text-primary text-sm font-medium hover:underline">Télécharger</button>
+            <a href="/rapports/export" class="mt-4 text-primary text-sm font-medium hover:underline inline-block">Télécharger</a>
         </div>
         <div class="border border-border rounded-lg p-5">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16B6AE" stroke-width="2" class="mb-3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             <p class="font-semibold text-sm">Mouvements mensuels</p>
             <p class="text-xs text-muted-foreground mt-1">Affectations et transferts</p>
-            <button class="mt-4 text-primary text-sm font-medium hover:underline">Télécharger</button>
+            <a href="/rapports/export" class="mt-4 text-primary text-sm font-medium hover:underline inline-block">Télécharger</a>
         </div>
         <div class="border border-border rounded-lg p-5">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2" class="mb-3"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             <p class="font-semibold text-sm">Biens à régulariser</p>
             <p class="text-xs text-muted-foreground mt-1">Liste des contrôles prioritaires</p>
-            <button class="mt-4 text-primary text-sm font-medium hover:underline">Télécharger</button>
+            <a href="/rapports/export" class="mt-4 text-primary text-sm font-medium hover:underline inline-block">Télécharger</a>
         </div>
     </div>
 </div>

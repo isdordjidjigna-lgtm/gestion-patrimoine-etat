@@ -133,18 +133,18 @@
             </div>
         </div>
 
-        {{-- DOCUMENTS --}}
+        {{-- DOCUMENTS (liens corrigés) --}}
         <div class="bg-card border border-border rounded-xl p-6 shadow-md">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-semibold">Documents</h2>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16B6AE" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
             </div>
             <div class="mt-4 space-y-3">
-                <a href="#" class="flex items-center gap-3 text-sm hover:underline">
+                <a href="/documents/titre-foncier" class="flex items-center gap-3 text-sm hover:underline">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10A8D4" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                     <span class="font-medium">Titre foncier.pdf</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 text-sm hover:underline">
+                <a href="/documents/rapport-evaluation" class="flex items-center gap-3 text-sm hover:underline">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10A8D4" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                     <span class="font-medium">Rapport d’évaluation.pdf</span>
                 </a>

@@ -5,6 +5,11 @@
 @section('content')
 
 <header class="flex items-center justify-between gap-6 mb-8">
+    @if(session('success'))
+    <div class="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6">
+        {{ session('success') }}
+    </div>
+    @endif
     <div>
         <p class="text-sm text-muted-foreground">Inventaire national • 12 846 enregistrements</p>
         <h1 class="text-2xl font-bold">Registre du patrimoine</h1>
@@ -43,7 +48,7 @@
     </div>
     <div class="flex items-center justify-between text-sm text-muted-foreground">
         <span>Affichage de 1–6 sur 12 846 biens</span>
-        <a href="#" class="text-primary font-medium flex items-center gap-1 hover:underline">
+        <a href="/registre/export" class="text-primary font-medium flex items-center gap-1 hover:underline">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Exporter le registre
         </a>
