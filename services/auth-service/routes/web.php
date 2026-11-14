@@ -30,3 +30,9 @@ Route::get('/affectations', function () {
 Route::get('/ajouter-affectation', function () {
     return view('ajouter-affectation');
 })->middleware('auth');
+
+Route::get('/rapports', function () {
+    return view('rapports');
+})->middleware('auth');
+
+
