@@ -10,6 +10,7 @@ services:
     runtime: docker
     plan: free
     dockerfilePath: ./services/patrimoine-service/Dockerfile
+    dockerContext: .
     envVars:
       - key: APP_ENV
         value: production
@@ -49,6 +50,7 @@ services:
     runtime: docker
     plan: free
     dockerfilePath: ./services/auth-service/Dockerfile
+    dockerContext: .
     envVars:
       - key: APP_ENV
         value: production
