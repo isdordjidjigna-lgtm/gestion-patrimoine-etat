@@ -7,8 +7,10 @@ services:
     name: patrimoine-service
     runtime: docker
     plan: free
-    dockerfilePath: ./services/patrimoine-service/Dockerfile
+    dockerfilePath: ./Dockerfile
     envVars:
+      - key: SERVICE_DIR
+        value: services/patrimoine-service
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
@@ -42,8 +44,10 @@ services:
     name: auth-service
     runtime: docker
     plan: free
-    dockerfilePath: ./services/auth-service/Dockerfile
+    dockerfilePath: ./Dockerfile
     envVars:
+      - key: SERVICE_DIR
+        value: services/auth-service
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
@@ -73,4 +77,4 @@ services:
           name: patrimoine-db
           property: password
       - key: PATRIMOINE_API_URL
-        value: "https://patrimoine-service-XXXX.onrender.com"
+        value: "https://patrimoine-service-xxxx.onrender.com"
