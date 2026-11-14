@@ -105,15 +105,15 @@
             <span class="bg-destructive text-destructive-foreground rounded-full px-2 py-1 text-xs font-semibold">3</span>
         </div>
         <div class="mt-5 space-y-4">
-            <div class="border-l-4 border-destructive pl-3">
+            <div class="pl-3" style="border-left: 4px solid #B42318;">
                 <p class="font-semibold text-sm">Contrôle à échéance</p>
                 <p class="text-xs text-muted-foreground mt-1">17 véhicules sans contrôle technique valide.</p>
             </div>
-            <div class="border-l-4 border-primary pl-3">
-                <p class="font-semibold text-sm">Écarts d’inventaire</p>
+            <div class="pl-3" style="border-left: 4px solid #10A8D4;">
+                <p class="font-semibold text-sm">Écarts d'inventaire</p>
                 <p class="text-xs text-muted-foreground mt-1">9 biens à rapprocher avec les sites régionaux.</p>
             </div>
-            <div class="border-l-4 border-tertiary pl-3">
+            <div class="pl-3" style="border-left: 4px solid #16B6AE;">
                 <p class="font-semibold text-sm">Mouvements à valider</p>
                 <p class="text-xs text-muted-foreground mt-1">42 demandes transmises par les ministères.</p>
             </div>
@@ -128,9 +128,9 @@
             <p class="text-sm text-muted-foreground">Traçabilité des opérations récentes</p>
         </div>
         <a href="/affectations" class="min-h-11 px-5 rounded-full text-foreground text-sm font-semibold shadow-md inline-flex items-center" style="background: linear-gradient(135deg, #10A8D4 0%, #16B6AE 100%);">
-         Consulter les mouvements
-    <svg class="ml-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
+            Consulter les mouvements
+            <svg class="ml-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
     </div>
     <div class="overflow-hidden border border-border rounded-lg">
         <table class="w-full text-sm">
