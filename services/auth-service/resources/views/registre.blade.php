@@ -4,12 +4,13 @@
 
 @section('content')
 
+@if(session('success'))
+<div class="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6">
+    {{ session('success') }}
+</div>
+@endif
+
 <header class="flex items-center justify-between gap-6 mb-8">
-    @if(session('success'))
-    <div class="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6">
-        {{ session('success') }}
-    </div>
-    @endif
     <div>
         <p class="text-sm text-muted-foreground">Inventaire national • 12 846 enregistrements</p>
         <h1 class="text-2xl font-bold">Registre du patrimoine</h1>
@@ -21,11 +22,14 @@
 </header>
 
 <div class="bg-card border border-border rounded-xl p-4 mb-6">
-    <div class="flex gap-3 mb-3">
+    <form method="GET" action="/registre" class="flex gap-3 mb-3">
         <div class="flex-1 relative">
             <svg class="absolute left-3 top-3 text-muted-foreground" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" placeholder="Référence, désignation, site..." class="w-full pl-10 pr-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
+            <input type="text" name="search" value="{{ request('search') }}" placeholder="Référence, désignation, site..." class="w-full pl-10 pr-4 py-2.5 border border-input rounded-lg focus:ring-2 focus:ring-primary">
         </div>
+        <button type="submit" class="px-5 py-2.5 rounded-lg text-white font-semibold transition" style="background: linear-gradient(135deg, #10A8D4 0%, #16B6AE 100%);">
+            Rechercher
+        </button>
         <select class="px-4 py-2.5 border border-input rounded-lg">
             <option>Catégorie</option>
             <option>Immobilier</option>
@@ -45,9 +49,9 @@
             <option>Golfe • Lomé</option>
             <option>Kozah • Kara</option>
         </select>
-    </div>
+    </form>
     <div class="flex items-center justify-between text-sm text-muted-foreground">
-        <span>Affichage de 1–6 sur 12 846 biens</span>
+        <span>Affichage de {{ $biens->count() }} bien(s)</span>
         <a href="/registre/export" class="text-primary font-medium flex items-center gap-1 hover:underline">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Exporter le registre
