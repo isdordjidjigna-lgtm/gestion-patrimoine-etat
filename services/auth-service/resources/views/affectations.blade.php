@@ -9,7 +9,7 @@
         <p class="text-sm text-muted-foreground">Traçabilité des mises à disposition et transferts</p>
         <h1 class="text-2xl font-bold">Affectations et mouvements</h1>
     </div>
-    <a href="#" class="bg-gradient-to-r from-primary to-tertiary text-foreground px-5 py-3 rounded-lg font-semibold flex items-center gap-2 hover:shadow-lg transition" style="background: linear-gradient(135deg, #10A8D4 0%, #16B6AE 100%);">
+    <a href="/ajouter-affectation" class="bg-gradient-to-r from-primary to-tertiary text-foreground px-5 py-3 rounded-lg font-semibold flex items-center gap-2 hover:shadow-lg transition" style="background: linear-gradient(135deg, #10A8D4 0%, #16B6AE 100%);">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         Nouvelle affectation
     </a>

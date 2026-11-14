@@ -17,7 +17,7 @@
         <h1 class="text-2xl font-bold mt-2">{{ $bien['designation'] }}</h1>
         <p class="text-sm text-muted-foreground mt-2">{{ $bien['categorie']['nom'] ?? '-' }} · {{ $bien['description'] ?? '' }}</p>
     </div>
-    <a href="#" class="min-h-11 rounded-full p-[2px] shadow-md inline-flex" style="background: linear-gradient(135deg, #10A8D4 0%, #16B6AE 100%);">
+    <a href="/ajouter-affectation" class="min-h-11 rounded-full p-[2px] shadow-md inline-flex" style="background: linear-gradient(135deg, #10A8D4 0%, #16B6AE 100%);">
         <span class="min-h-10 rounded-full bg-white px-5 flex items-center gap-2 font-semibold text-gray-800">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             Nouvelle affectation
@@ -28,7 +28,7 @@
 <section class="grid grid-cols-1 xl:grid-cols-3 gap-6">
     {{-- COLONNE GAUCHE --}}
     <div class="xl:col-span-2 space-y-6">
-        
+
         {{-- VALEUR + ACQUISITION (bordure dégradée) --}}
         <div class="rounded-xl p-[2px] shadow-md" style="background: linear-gradient(135deg, #10A8D4 0%, #16B6AE 100%);">
             <div class="rounded-xl bg-white p-6">
@@ -93,7 +93,7 @@
         <div class="bg-card border border-border rounded-xl p-6 shadow-md">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-semibold">Historique des mouvements</h2>
-                <a href="#" class="text-sm font-semibold text-primary">Voir tout</a>
+                <a href="/affectations" class="text-sm font-semibold text-primary">Voir tout</a>
             </div>
             <div class="mt-5 space-y-5 text-sm">
                 @forelse($bien['mouvements'] ?? [] as $mouvement)
