@@ -66,6 +66,9 @@ class RegistreController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
+        $page = $request->input('page', 1);
+        $perPage = 4; // 4 biens par page
+
         $biens = collect($this->biens);
 
         if ($search) {
@@ -76,7 +79,16 @@ class RegistreController extends Controller
             });
         }
 
-        return view('registre', ['biens' => $biens]);
+        $total = $biens->count();
+        $totalPages = ceil($total / $perPage);
+        $biens = $biens->forPage($page, $perPage);
+
+        return view('registre', [
+            'biens' => $biens,
+            'currentPage' => $page,
+            'totalPages' => $totalPages,
+            'search' => $search,
+        ]);
     }
 
     public function show($id)
@@ -86,4 +98,3 @@ class RegistreController extends Controller
         return view('fiche-bien', compact('bien'));
     }
 }
-
