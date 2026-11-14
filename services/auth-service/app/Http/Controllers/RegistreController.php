@@ -9,29 +9,29 @@ class RegistreController extends Controller
 {
     public function index()
     {
-        // Timeout de 10 secondes pour éviter les blocages
-        $response = Http::timeout(10)->get('http://patrimoine-service:8000/api/patrimoine/biens');
-
+        $apiUrl = env('PATRIMOINE_API_URL', 'http://patrimoine-service:8000');
+        $response = Http::timeout(10)->get($apiUrl . '/api/patrimoine/biens');
+        
         $biens = [];
         if ($response->successful()) {
             $data = $response->json();
             $biens = $data['data'] ?? [];
         }
-
+        
         return view('registre', compact('biens'));
     }
 
     public function show($id)
     {
-        // Timeout de 10 secondes pour éviter les blocages
-        $response = Http::timeout(10)->get("http://patrimoine-service:8000/api/patrimoine/biens/{$id}");
-
+        $apiUrl = env('PATRIMOINE_API_URL', 'http://patrimoine-service:8000');
+        $response = Http::timeout(10)->get($apiUrl . "/api/patrimoine/biens/{$id}");
+        
         if (!$response->successful()) {
             abort(404);
         }
-
+        
         $bien = $response->json()['data'];
-
+        
         return view('fiche-bien', compact('bien'));
     }
 }

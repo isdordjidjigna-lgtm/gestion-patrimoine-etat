@@ -1,0 +1,85 @@
+databases:
+  - name: patrimoine-db
+    plan: free
+    databaseName: patrimoine_db
+    user: postgres
+
+services:
+  - type: web
+    name: patrimoine-service
+    runtime: docker
+    plan: free
+    dockerfilePath: ./services/patrimoine-service/Dockerfile
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: patrimoine-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: patrimoine-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: patrimoine-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: patrimoine-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: patrimoine-db
+          property: password
+    startCommand: |
+      php artisan migrate --force
+      php artisan db:seed --class=PatrimoineSeeder --force
+      php artisan serve --host=0.0.0.0 --port=$PORT
+
+  - type: web
+    name: auth-service
+    runtime: docker
+    plan: free
+    dockerfilePath: ./services/auth-service/Dockerfile
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: patrimoine-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: patrimoine-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: patrimoine-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: patrimoine-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: patrimoine-db
+          property: password
+      - key: PATRIMOINE_API_URL
+        value: "https://patrimoine-service-XXXX.onrender.com"
+    startCommand: |
+      php artisan migrate --force
+      php artisan serve --host=0.0.0.0 --port=$PORT
