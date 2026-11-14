@@ -1,8 +1,6 @@
 databases:
   - name: patrimoine-db
     plan: free
-    databaseName: patrimoine_db
-    user: postgres
 
 services:
   - type: web
@@ -40,10 +38,6 @@ services:
         fromDatabase:
           name: patrimoine-db
           property: password
-    startCommand: |
-      php artisan migrate --force
-      php artisan db:seed --class=PatrimoineSeeder --force
-      php artisan serve --host=0.0.0.0 --port=$PORT
 
   - type: web
     name: auth-service
@@ -82,6 +76,3 @@ services:
           property: password
       - key: PATRIMOINE_API_URL
         value: "https://patrimoine-service-XXXX.onrender.com"
-    startCommand: |
-      php artisan migrate --force
-      php artisan serve --host=0.0.0.0 --port=$PORT
