@@ -98,8 +98,8 @@
                             <label class="block text-sm font-medium text-gray-700">
                                 Mot de passe
                             </label>
-                            <a href="#" class="text-sm text-teal-600 hover:text-teal-700 font-medium">
-                                Mot de passe oublié ?
+                            <a href="#" onclick="alert('Veuillez contacter la Direction des Systèmes d\'Information (DSI) pour réinitialiser votre mot de passe.'); return false;" class="text-sm text-teal-600 hover:text-teal-700 font-medium">
+                               Mot de passe oublié ?
                             </a>
                         </div>
                         <div class="relative">
