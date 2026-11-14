@@ -63,9 +63,20 @@ class RegistreController extends Controller
         ]
     ];
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('registre', ['biens' => $this->biens]);
+        $search = $request->input('search');
+        $biens = collect($this->biens);
+
+        if ($search) {
+            $biens = $biens->filter(function ($bien) use ($search) {
+                return stripos($bien['reference'], $search) !== false
+                    || stripos($bien['designation'], $search) !== false
+                    || stripos($bien['localisation']['ville'] ?? '', $search) !== false;
+            });
+        }
+
+        return view('registre', ['biens' => $biens]);
     }
 
     public function show($id)
@@ -75,3 +86,4 @@ class RegistreController extends Controller
         return view('fiche-bien', compact('bien'));
     }
 }
+

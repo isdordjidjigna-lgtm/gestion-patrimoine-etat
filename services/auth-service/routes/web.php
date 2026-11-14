@@ -23,9 +23,7 @@ Route::get('/ajouter-bien', function () {
     return view('ajouter-bien');
 })->middleware('auth');
 
-Route::get('/affectations', function () {
-    return view('affectations');
-})->middleware('auth');
+Route::get('/affectations', [\App\Http\Controllers\AffectationController::class, 'index'])->middleware('auth');
 
 Route::get('/ajouter-affectation', function () {
     return view('ajouter-affectation');
