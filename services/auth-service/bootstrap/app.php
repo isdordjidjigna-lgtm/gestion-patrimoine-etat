@@ -13,6 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // Faire confiance au proxy (Render) pour générer les bonnes URLs (HTTPS)
+        $middleware->trustProxies(at: '*');
+
         // Désactiver la vérification CSRF pour /login
         $middleware->validateCsrfTokens(except: [
             'login',
