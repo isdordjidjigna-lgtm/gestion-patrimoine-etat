@@ -103,12 +103,20 @@
 <div class="flex items-center justify-between text-sm text-muted-foreground">
     <span>Mise à jour des données : 10 nov. 2026 à 08:30</span>
     <div class="flex items-center gap-1">
-        <button class="w-9 h-9 flex items-center justify-center border border-border rounded-lg hover:bg-muted">&lsaquo;</button>
-        <button class="w-9 h-9 flex items-center justify-center bg-primary text-primary-foreground rounded-lg font-medium">1</button>
-        <button class="w-9 h-9 flex items-center justify-center border border-border rounded-lg hover:bg-muted">2</button>
-        <button class="w-9 h-9 flex items-center justify-center border border-border rounded-lg hover:bg-muted">3</button>
-        <button class="w-9 h-9 flex items-center justify-center border border-border rounded-lg hover:bg-muted">&rsaquo;</button>
+        @if($currentPage > 1)
+            <a href="/registre?page={{ $currentPage - 1 }}{{ $search ? '&search=' . $search : '' }}" class="w-9 h-9 flex items-center justify-center border border-border rounded-lg hover:bg-muted">&lsaquo;</a>
+        @endif
+
+        @for($i = 1; $i <= $totalPages; $i++)
+            <a href="/registre?page={{ $i }}{{ $search ? '&search=' . $search : '' }}" 
+               class="w-9 h-9 flex items-center justify-center rounded-lg {{ $i == $currentPage ? 'bg-primary text-primary-foreground font-medium' : 'border border-border hover:bg-muted' }}">
+                {{ $i }}
+            </a>
+        @endfor
+
+        @if($currentPage < $totalPages)
+            <a href="/registre?page={{ $currentPage + 1 }}{{ $search ? '&search=' . $search : '' }}" class="w-9 h-9 flex items-center justify-center border border-border rounded-lg hover:bg-muted">&rsaquo;</a>
+        @endif
     </div>
 </div>
-
 @endsection
