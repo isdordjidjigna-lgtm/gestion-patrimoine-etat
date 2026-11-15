@@ -67,7 +67,7 @@ class RegistreController extends Controller
     {
         $search = $request->input('search');
         $page = $request->input('page', 1);
-        $perPage = 4; // 4 biens par page
+        $perPage = 3; // 3 biens par page
 
         $biens = collect($this->biens);
 
