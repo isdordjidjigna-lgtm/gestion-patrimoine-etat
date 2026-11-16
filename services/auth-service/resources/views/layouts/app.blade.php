@@ -6,6 +6,7 @@
     <title>@yield('title', 'Patrimoine État')</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -119,16 +120,16 @@
                     : ($isFicheBien ? 'text-muted-foreground hover:bg-muted' : 'hover:bg-white/10') }}">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                 Rapports
-            </a>{{-- Utilisateurs --}}
+            </a>
+
+            {{-- Utilisateurs --}}
             <a href="/utilisateurs" class="flex items-center gap-3 rounded-lg px-3 py-3 
-            {{ request()->is('utilisateurs*') 
-            ? ($isFicheBien ? 'bg-accent font-semibold text-foreground' : 'bg-white text-[#10A8D4] font-semibold') 
-            : ($isFicheBien ? 'text-muted-foreground hover:bg-muted' : 'hover:bg-white/10') }}">
-           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-           Utilisateurs
-           </a>
-
-
+                {{ request()->is('utilisateurs*') 
+                    ? ($isFicheBien ? 'bg-accent font-semibold text-foreground' : 'bg-white text-[#10A8D4] font-semibold') 
+                    : ($isFicheBien ? 'text-muted-foreground hover:bg-muted' : 'hover:bg-white/10') }}">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Utilisateurs
+            </a>
         </nav>
 
         {{-- DÉCONNEXION --}}
