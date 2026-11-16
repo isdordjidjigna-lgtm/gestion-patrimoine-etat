@@ -120,3 +120,6 @@ Route::post('/utilisateurs', [\App\Http\Controllers\UtilisateurController::class
 Route::get('/utilisateurs/creer', function () {
     return view('utilisateurs-creer');
 })->middleware('auth');
+
+Route::get('/utilisateurs/{id}/modifier', [\App\Http\Controllers\UtilisateurController::class, 'edit'])->middleware('auth');
+Route::put('/utilisateurs/{id}', [\App\Http\Controllers\UtilisateurController::class, 'update'])->middleware('auth');

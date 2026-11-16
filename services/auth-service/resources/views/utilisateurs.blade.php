@@ -48,7 +48,7 @@
                     @endif
                 </td>
                 <td class="px-6 py-4 text-right">
-                    <a href="#" class="text-primary font-medium hover:underline">Modifier</a>
+                    <a href="/utilisateurs/{{ $user['id'] }}/modifier" class="text-primary font-medium hover:underline">Modifier</a>
                 </td>
             </tr>
             @empty

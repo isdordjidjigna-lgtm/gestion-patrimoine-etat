@@ -23,4 +23,22 @@ class UtilisateurController extends Controller
         // Simulation d'ajout (dans un vrai projet, on ferait un INSERT)
         return redirect('/utilisateurs')->with('success', 'Utilisateur ajouté avec succès.');
     }
+
+    public function edit($id)
+{
+    // Simulation : on récupère l'utilisateur par son ID
+    $utilisateur = collect($this->utilisateurs)->firstWhere('id', (int) $id);
+    
+    if (!$utilisateur) {
+        abort(404);
+    }
+    
+    return view('utilisateurs-modifier', compact('utilisateur'));
+}
+
+public function update(Request $request, $id)
+{
+    // Simulation : on redirige avec un message de succès
+    return redirect('/utilisateurs')->with('success', 'Utilisateur modifié avec succès.');
+}
 }
