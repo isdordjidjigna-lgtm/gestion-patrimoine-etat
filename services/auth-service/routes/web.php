@@ -112,3 +112,11 @@ Route::get('/registre/export', function () {
 Route::post('/ajouter-bien', function (Illuminate\Http\Request $request) {
     return redirect('/registre')->with('success', 'Le bien a été enregistré avec succès.');
 })->middleware('auth');
+
+// Page Utilisateurs (admin)
+Route::get('/utilisateurs', [\App\Http\Controllers\UtilisateurController::class, 'index'])->middleware('auth');
+Route::post('/utilisateurs', [\App\Http\Controllers\UtilisateurController::class, 'store'])->middleware('auth');
+
+Route::get('/utilisateurs/creer', function () {
+    return view('utilisateurs-creer');
+})->middleware('auth');
