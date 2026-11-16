@@ -123,3 +123,7 @@ Route::get('/utilisateurs/creer', function () {
 
 Route::get('/utilisateurs/{id}/modifier', [\App\Http\Controllers\UtilisateurController::class, 'edit'])->middleware('auth');
 Route::put('/utilisateurs/{id}', [\App\Http\Controllers\UtilisateurController::class, 'update'])->middleware('auth');
+
+Route::get('/profil', function () {
+    return view('profil');
+})->middleware('auth');
